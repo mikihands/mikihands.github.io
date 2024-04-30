@@ -1,4 +1,4 @@
-body {
+body,html {
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -12,6 +12,43 @@ body {
     width: 100%;
     top: 0;
     left: 0;
+}
+
+
+/* 사이드바와 메인 컨텐츠 컨테이너 */
+.flex-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 사이드바 스타일 */
+.sidebar {
+    flex: 2;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* 메인 컨텐츠 영역 */
+.main-content {
+    flex: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 본문 메인 영역 */
+.main-body {
+    flex: 8;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* 본문 세컨더리 영역 (On This Page) */
+.body-secondary {
+    flex: 2;
+    background-color: #f8f9fa;
+    padding: 20px;
+    overflow: auto;
 }
 
 .content {
