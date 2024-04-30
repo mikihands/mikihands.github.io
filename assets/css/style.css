@@ -2,7 +2,7 @@ body,html {
     margin: 0;
     font-family: Arial, sans-serif;
 }
-.header, .site-footer {
+.header {
     background-color: #f8f9fa;
     padding: 10px 20px;
     text-align: center;
@@ -23,36 +23,44 @@ body,html {
 
 /* 사이드바 스타일 */
 .sidebar {
-    flex: 2;
     border-right: 1px solid #ccc;
     padding: 20px;
-    overflow: auto;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 16.66666667%; /* col-md-2에 해당하는 비율 */
+    height: 100vh; /* 전체 뷰포트 높이 */
+    overflow-y: auto; /* 필요한 경우 내부 스크롤 */
 }
 
 /* 메인 컨텐츠 영역 */
 .main-content {
-    flex: 10;
     display: flex;
     flex-direction: column;
+    margin-left: 16.66666667%; /* Sidebar 너비만큼 마진 */
+    margin-right: 16.66666667%; /* body-secondary 너비만큼 마진 */
 }
 
 /* 본문 메인 영역 */
 .main-body {
-    flex: 8;
+    height: 100vh;
     padding: 20px;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 /* 본문 세컨더리 영역 (On This Page) */
 .body-secondary {
-    flex: 2;
-    background-color: #f8f9fa;
     padding: 20px;
-    overflow: auto;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    width: 16.66666667%; /* col-md-2에 해당하는 비율 */
+    height: 100vh;
+    overflow-y: auto; /* 필요한 경우 내부 스크롤 */
 }
 
 .content {
-    margin-top: 60px; /* Adjust based on header height */
+    margin-top: 3px; /* Adjust based on header height */
     padding: 20px;
     min-height: 80vh; /* Minimum height with footer */
 }
@@ -69,25 +77,29 @@ nav a {
     color: #333;
 }
 
-.wrapper {
+/* .wrapper {
     max-width: -webkit-calc(800px - (30px * 2));
     max-width: calc(800px - 30px * 2);
     margin-right: auto;
     margin-left: auto;
     padding-right: 30px;
     padding-left: 30px;
-}
+} */
 
 .site-footer {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
+    text-align: left;
 }
 
 .footer-heading {
     font-size: 18px;
     margin-bottom: 15px;
+    margin-left: 30px;
 }
 
 .footer-col-wrapper {
@@ -98,7 +110,6 @@ nav a {
 
 
 .footer-col {
-    float: left;
     margin-bottom: 15px;
     padding-left: 15px;
 }
@@ -120,6 +131,279 @@ nav a {
 
 .contact-list,
 .social-media-list {
-  list-style: none;
-  margin-left: 0;
+    font-size: 15px;
+    list-style: none;
+    margin-left: 0;
+
+}
+
+.svg-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    fill: #828282;
+    padding-right: 0px;
+    vertical-align: text-top;
+    margin-right: 3px;
+  }
+
+/* 네비게이션 바 중앙 정렬을 위한 CSS */
+.navbar-nav {
+    justify-content: center; /* Flexbox 아이템을 가운데 정렬 */
+    width: 100%; /* ul 태그를 네비게이션 바 전체 너비로 확장 */
+}
+
+/* 모바일 뷰에서도 중앙 정렬 유지 */
+@media (max-width: 991px) {
+    .navbar-nav {
+        flex-direction: row; /* 아이템을 가로로 정렬 */
+    }
+    .navbar-collapse {
+        justify-content: center; /* 컨테이너 내 아이템 중앙 정렬 */
+    }
+}
+
+#foot_arr{
+    display: flex;
+}
+
+/* style.css */
+code {
+    border-radius: 4px; /* 모서리 둥글게 */
+    font-family: 'Courier New', Courier, monospace; /* 고정폭 글꼴 */
+    padding: 2px 4px; /* 내부 여백 */
+    color: #d63384; /* 부트스트랩 테마 색상 조합 */
+}
+
+/* style.css */
+pre {
+    background-color: #f8f8f8; /* 연한 회색 배경 */
+    border: 1px solid #ccc; /* 경계선 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    padding: 10px; /* 내부 여백 */
+    overflow: auto; /* 넘치는 텍스트 스크롤 */
+}
+
+pre code {
+    color: #333; /* 코드 색상 */
+    overflow-wrap: break-word; /* 단어가 너무 길면 줄바꿈 */
+}
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+.highlight {
+  margin-bottom: 15px;
+}
+
+/**
+ * Syntax highlighting styles
+ */
+.highlight {
+background: #fff;
+}
+.highlighter-rouge .highlight {
+background: #eef;
+}
+.highlight .c {
+color: #998;
+font-style: italic;
+}
+.highlight .err {
+color: #a61717;
+background-color: #e3d2d2;
+}
+.highlight .k {
+font-weight: bold;
+}
+.highlight .o {
+font-weight: bold;
+}
+.highlight .cm {
+color: #998;
+font-style: italic;
+}
+.highlight .cp {
+color: #999;
+font-weight: bold;
+}
+.highlight .c1 {
+color: #998;
+font-style: italic;
+}
+.highlight .cs {
+color: #999;
+font-weight: bold;
+font-style: italic;
+}
+.highlight .gd {
+color: #000;
+background-color: #fdd;
+}
+.highlight .gd .x {
+color: #000;
+background-color: #faa;
+}
+.highlight .ge {
+font-style: italic;
+}
+.highlight .gr {
+color: #a00;
+}
+.highlight .gh {
+color: #999;
+}
+.highlight .gi {
+color: #000;
+background-color: #dfd;
+}
+.highlight .gi .x {
+color: #000;
+background-color: #afa;
+}
+.highlight .go {
+color: #888;
+}
+.highlight .gp {
+color: #555;
+}
+.highlight .gs {
+font-weight: bold;
+}
+.highlight .gu {
+color: #aaa;
+}
+.highlight .gt {
+color: #a00;
+}
+.highlight .kc {
+font-weight: bold;
+}
+.highlight .kd {
+font-weight: bold;
+}
+.highlight .kp {
+font-weight: bold;
+}
+.highlight .kr {
+font-weight: bold;
+}
+.highlight .kt {
+color: #458;
+font-weight: bold;
+}
+.highlight .m {
+color: #099;
+}
+.highlight .s {
+color: #d14;
+}
+.highlight .na {
+color: #008080;
+}
+.highlight .nb {
+color: #0086B3;
+}
+.highlight .nc {
+color: #458;
+font-weight: bold;
+}
+.highlight .no {
+color: #008080;
+}
+.highlight .ni {
+color: #800080;
+}
+.highlight .ne {
+color: #900;
+font-weight: bold;
+}
+.highlight .nf {
+color: #900;
+font-weight: bold;
+}
+.highlight .nn {
+color: #555;
+}
+.highlight .nt {
+color: #000080;
+}
+.highlight .nv {
+color: #008080;
+}
+.highlight .ow {
+font-weight: bold;
+}
+.highlight .w {
+color: #bbb;
+}
+.highlight .mf {
+color: #099;
+}
+.highlight .mh {
+color: #099;
+}
+.highlight .mi {
+color: #099;
+}
+.highlight .mo {
+color: #099;
+}
+.highlight .sb {
+color: #d14;
+}
+.highlight .sc {
+color: #d14;
+}
+.highlight .sd {
+color: #d14;
+}
+.highlight .s2 {
+color: #d14;
+}
+.highlight .se {
+color: #d14;
+}
+.highlight .sh {
+color: #d14;
+}
+.highlight .si {
+color: #d14;
+}
+.highlight .sx {
+color: #d14;
+}
+.highlight .sr {
+color: #009926;
+}
+.highlight .s1 {
+color: #d14;
+}
+.highlight .ss {
+color: #990073;
+}
+.highlight .bp {
+color: #999;
+}
+.highlight .vc {
+color: #008080;
+}
+.highlight .vg {
+color: #008080;
+}
+.highlight .vi {
+color: #008080;
+}
+.highlight .il {
+color: #099;
+}
+  
+.card-header .btn-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 16px;
+}
+
+.main-body::-webkit-scrollbar, .body-secondary::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera의 스크롤바 숨기기 */
 }

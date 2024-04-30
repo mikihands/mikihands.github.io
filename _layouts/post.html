@@ -1,32 +1,53 @@
 ---
 layout: base
 ---
-<div class="flex-container">
-  <aside class="sidebar">
-    <h3>Categories</h3>
-    {% for category in site.categories %}
-      <div class="category">
-        <h4>{{ category[0] }}</h4>
-        <ul>
-          {% for post in category[1] %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endfor %}
-  </aside>
+<div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar Column -->
+        <div class="col-md-2">
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <div id="accordion">
+                    {% for category in site.categories %}
+                    <div class="card">
+                        <div class="card-header" id="heading{{ forloop.index }}">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.index }}" aria-expanded="true" aria-controls="collapse{{ forloop.index }}">
+                                    {{ category[0] }}
+                                </button>
+                            </h5>
+                        </div>
 
-  <div class="main-content">
-    <main class="main-body">
-      {{ content }}
-    </main>
-    <aside class="body-secondary">
-      <h4>On This Page</h4>
-      <ul>
-        {% for header in content | scan_headers %}
-          <li><a href="#{{ header.id }}">{{ header.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </aside>
-  </div>
+                        <div id="collapse{{ forloop.index }}" class="collapse" aria-labelledby="heading{{ forloop.index }}" data-parent="#accordion">
+                            <div class="card-body">
+                                {% for post in category[1] %}
+                                <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </aside>
+        </div>
+
+      <!-- Main Content Column -->
+      <div class="col-md-8">
+        <main class="main-body">
+          {{ content }}
+        </main>
+      </div>
+      <!-- Secondary Content Column -->
+      <div class="col-md-2">
+        <aside class="body-secondary">
+          <h4>On This Page</h4>
+          <ul>
+            {% for header in content | scan_headers %}
+              <li><a href="#{{ header.id }}">{{ header.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </aside>
+      </div>
+    </div>
 </div>
+  
