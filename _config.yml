@@ -18,16 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Whitedec Blog
+email: jessekim80@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Jesse Kim의 Coding Study 블로그입니다. 저는 웹앱이나 모바일앱을 개발하여 퍼블리싱 하는 개발자이며 주로 사용하는 언어는 Python이며 Framework는 장고를 이용하여 개발하고 있습니다. 
+  Welcome to Jesse Kim's Coding Study blog. I am a developer who specializes in developing and publishing web and mobile applications. My primary programming language is Python, and I mainly use the Django framework for development.
+  ジェシー・キムのコーディングスタディブログへようこそ。私はウェブアプリやモバイルアプリを開発してパブリッシングする開発者で、主に使用している言語はPythonで、フレームワークはDjangoを使用して開発しています。
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: whitedec
+github_username:  whitedec
 
 # Build settings
 theme: minima
