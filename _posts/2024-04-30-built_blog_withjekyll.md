@@ -26,11 +26,9 @@ Jekyll과 유사하거나 더 인기 있는 다른 프로그램들은 다음과 
 **Jekyll의 장점**은 다음과 같습니다:
 
 1. 간편한 설정: GitHub 계정에 레포지토리를 만들고 Jekyll 테마를 선택한 후 몇 가지 설정만으로 블로그를 시작할 수 있습니다.
-1. 무료 호스팅: GitHub Pages를 통해 무료로 호스팅되므로 호스팅 비용이 들지 않습니다.
-1. 커스터마이징 용이성: 다양한 테마와 플러그인을 사용하여 블로그의 외형과 기능을 쉽게 바꿀 수 있습니다.
-1. 마크다운 지원: 콘텐츠 생성이 편리하며, GitHub과 같은 환경에서 작업하는 데 익숙한 경우 더욱 쉽게 접근할 수 있습니다.
+1. 무료 호스팅: GitHub Pages를 통해 무료로 호스팅되므로 호스팅 비용이 들지 않습니다.1. Preview your site locally
+You can preview your site by starting a Jekyll server locally. This is a very important and convenient feature. It takes a few seconds to several minutes to make corrections or create new content, send it to the server, and check for updates. If you try it, you will see that this is a bit inconvenient. Therefore, it is recommended to first check the posting on your local server and then push using git. To do this, use the following command:
 
-**시작하는 방법:**
 
 1. GitHub 계정을 만듭니다.
 1. 새로운 레포지토리를 생성하고 Jekyll 테마를 선택합니다.
