@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Django 애플리케이션 배포 가이드: Nginx와 Gunicorn을 이용한 효율적 설정"
+date:   2024-07-14 21:16:00 +0900
+categories: Django
+tags: Django Server Deployment settings
+---
+
 # Django 애플리케이션 배포 가이드: Nginx와 Gunicorn을 이용한 효율적 설정
 
 Django를 이용하여 웹 애플리케이션을 처음 배포하려는 분들을 위해, Nginx와 Gunicorn을 사용한 설정 방법을 자세히 설명합니다. 이 글에서는 Django 애플리케이션을 Docker 컨테이너로 실행하고, Nginx와 Gunicorn을 활용해 서비스를 제공하는 과정을 단계별로 안내합니다.
