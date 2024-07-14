@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Django 프로덕션 환경의 WSGI 서버 선택: Gunicorn vs uWSGI"
-date:   2024-07-15 20:41:00 +0900
+date:   2024-07-14 20:41:00 +0900
 categories: Django
-tags: Django Server settings 배포
+tags: Django Server settings Deployment
 ---
 
 # Django 프로덕션 환경의 WSGI 서버 선택: Gunicorn vs uWSGI
