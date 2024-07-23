@@ -24,22 +24,23 @@ USERNAME_FIELD, REQUIRED_FIELDS 등의 속성을 통해 사용자 모델의 기�
 
 CustomUserManager 는 BaseUserManager 를 상속받아 다음과 같은 기능을 구현합니다.
 
-> create_user: 일반 사용자 생성
-> create_superuser: 관리자 사용자 생성
-> normalize_email: 이메일 주소 정규화
-> set_password: 비밀번호 해시 설정   
+> - create_user: 일반 사용자 생성
+> - create_superuser: 관리자 사용자 생성
+> - normalize_email: 이메일 주소 정규화
+> - set_password: 비밀번호 해시 설정   
 
 CustomUser 는 AbstractBaseUser 를 상속받아 다음과 같은 필드와 속성을 정의합니다.
 
-> email: 사용자의 이메일 주소 (필수 필드)
-> first_name: 사용자의 이름 (필수 필드)
-> last_name: 사용자의 성 (필수 필드)
-> is_staff: 사용자가 관리자인지 여부
-> is_active: 사용자 계정이 활성화되었는지 여부
-> plan_type: 사용자의 요금제 유형 (추가 필드)
-> api_key: 사용자의 암호화된 API 키 (추가 필드)
-> usage_data: PAYG 사용자의 데이터 사용량 (추가 필드)
-> 따라서, BaseUserManager 는 사용자 생성 및 관리 로직을 담당하고, AbstractBaseUser 는 위에서 생성된 사용자 모델의 필드 및 속성을 정의하는 역할을 한다고 볼 수 있습니다.
+> - email: 사용자의 이메일 주소 (필수 필드)
+> - first_name: 사용자의 이름 (필수 필드)
+> - last_name: 사용자의 성 (필수 필드)
+> - is_staff: 사용자가 관리자인지 여부
+> - is_active: 사용자 계정이 활성화되었는지 여부
+> - plan_type: 사용자의 요금제 유형 (추가 필드)
+> - api_key: 사용자의 암호화된 API 키 (추가 필드)
+> - usage_data: PAYG 사용자의 데이터 사용량 (추가 필드)
+
+따라서, BaseUserManager 는 사용자 생성 및 관리 로직을 담당하고, AbstractBaseUser 는 위에서 생성된 사용자 모델의 필드 및 속성을 정의하는 역할을 한다고 볼 수 있습니다.
 
 ## 추가적으로:
 
