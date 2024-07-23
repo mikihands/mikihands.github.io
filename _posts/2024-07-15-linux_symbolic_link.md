@@ -3,7 +3,7 @@ layout: post
 title:  "리눅스 시스템의 디스크관리(추가 마운트, 심볼릭링크)"
 date:   2024-07-15 13:24:00 +0900
 categories: Linux
-tags : Lunux symbolicLink disk_mount
+tags : Linux symbolicLink disk_mount
 ---
 
 
