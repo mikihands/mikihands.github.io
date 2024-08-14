@@ -2,8 +2,8 @@
 layout: post
 title:  "Let's Encrypt SSL 인증서 수동 갱신 방법"
 date:   2024-07-23 17:42:00 +0900
-categories: Linux
-tags: Linux SSL
+categories: Linux Network
+tags: Linux SSL Network DNS
 ---
 
 
@@ -34,31 +34,29 @@ sudo apt-get install certbot
 
 Certbot을 수동 모드로 실행하여 DNS-01 챌린지를 수행합니다. 이 명령어를 실행하면 Certbot이 필요한 정보를 제공합니다.
 
-```
-bash
-Copy code
-sudo certbot certonly --manual --preferred-challenges dns -d mail.yourdomain.com
+```bash
+sudo certbot certonly --manual --preferred-challenges dns -d sample.yourdomain.com
 ```
 
 명령어를 실행하면 다음과 같은 출력이 나타납니다.
 
 ```plaintext
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
-Renewing an existing certificate for mail.yourdomain.com
+Renewing an existing certificate for sample.yourdomain.com
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Please deploy a DNS TXT record under the name:
 
-_acme-challenge.mail.yourdomain.com.
+_acme-challenge.sample.yourdomain.com.
 
 with the following value:
 
-KQYI-value_for_yourdomain_encrypte_ssl
+암호화된 문자열이 여기에 출력됩니다.
 
 Before continuing, verify the TXT record has been deployed. Depending on the DNS
 provider, this may take some time, from a few seconds to multiple minutes. You can
 check if it has finished deploying with aid of online tools, such as the Google
-Admin Toolbox: https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.mail.yourdomain.com.
+Admin Toolbox: https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.sample.yourdomain.com.
 Look for one or more bolded line(s) below the line ';ANSWER'. It should show the
 value(s) you've just added.
 
@@ -81,14 +79,14 @@ Squarespace 계정에 로그인하여 DNS 설정을 수정합니다.
    : 기존 
 
    ```
-   _acme-challenge.mail
+   _acme-challenge.sample
    ```
 
     레코드가 있는 경우 값을 업데이트하고, 없는 경우 새로 추가합니다.
 
    - **Type**: `TXT`
    - **Name**: `_acme-challenge.mail`
-   - **Value**: Certbot이 제공한 값 (`KQYI-value_for_yourdomain_encrypte_ssl`)
+   - **Value**: Certbot이 제공한 암호화된 문자열을 입력합니다.
 
 
 
@@ -98,20 +96,28 @@ Squarespace 계정에 로그인하여 DNS 설정을 수정합니다.
 
 ### 4단계: DNS 레코드 전파 확인
 
-DNS 레코드가 올바르게 전파되었는지 확인합니다. 이를 위해 [Google Admin Toolbox](https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.mail.yourdomain.com)와 같은 도구를 사용할 수 있습니다.
+DNS 레코드가 올바르게 전파되었는지 확인합니다. 이를 위해 [Google Admin Toolbox](https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.sample.yourdomain.com)와 같은 도구를 사용할 수 있습니다.
+
+certbot이 제시한 링크를 Ctrl+클릭을 하면 자동으로 구글의 공용 DNS로 연결되어 TXT값을 확인할 수 있습니다. 
+
+`dig`를 통해 직접 확인할 수도 있습니다. 
+```bash
+dig sample.yourdomain.com TXT @8.8.8.8
+```
+8.8.8.8 은 구글의 공용 DNS입니다. Clareflare의 1.1.1.1을 해도 되고 아무 DNS서버를 통해 DNS전파여부를 확인하면 됩니다. 
 
 ```plaintext
-; <<>> DiG 9.10.6 <<>> TXT _acme-challenge.mail.yourdomain.com
+; <<>> DiG 9.10.6 <<>> TXT _acme-challenge.sample.yourdomain.com
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64089
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
 
 ;; QUESTION SECTION:
-;_acme-challenge.mail.yourdomain.com. IN    TXT
+;_acme-challenge.sample.yourdomain.com. IN    TXT
 
 ;; ANSWER SECTION:
-_acme-challenge.mail.yourdomain.com. 299 IN TXT    "KQYI-value_for_yourdomain_encrypte_ssl"
+_acme-challenge.sample.yourdomain.com. 299 IN TXT    "암호화된-문자열들"
 
 ;; Query time: 23 msec
 ;; SERVER: 8.8.8.8#53(8.8.8.8)
@@ -145,3 +151,10 @@ sudo systemctl restart dovecot
 ### 자동 갱신에 대해
 
 자동 갱신을 설정하려면 DNS 제공자의 API를 사용해야 합니다. Squarespace는 API를 제공하지 않으므로 수동 갱신을 계속해야 합니다. 갱신 알림을 받아 적절한 시기에 갱신을 수행하는 것이 중요합니다.
+
+### 추가 : Bind9을 통해 직접 네임서버를 운영하는 경우
+
+지금 생각하면 당연한 이야기지만, bind9등을 통해 DNS 서버를 직접 운영하는 경우는 Squarespace 등의 도메인 판매자의 DNS Settings가 아니라 bind9의 Zone File (일반적으로 `/etc/bind/db.yourdomain.com` 에 위치한 파일이다.)에서 직접 TXT값을 넣어 줘야한다. 
+
+초보일때 이걸 몰라서 상당히 고생했었던 기억이 있다. 
+
