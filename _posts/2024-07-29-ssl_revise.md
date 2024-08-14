@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Let's Encrypt SSL 인증서 수동 갱신 방법"
-date:   2024-07-23 17:42:00 +0900
+date:   2024-07-29 17:42:00 +0900
 categories: Linux Network
 tags: Linux SSL Network DNS
 ---
