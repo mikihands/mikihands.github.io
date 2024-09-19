@@ -10,6 +10,8 @@ tags: Django Django-Admin
 
 Django admin은 웹 애플리케이션을 위한 강력한 관리 도구로, 데이터베이스의 모델을 손쉽게 관리할 수 있는 기능을 제공한다. 기본적으로 Django는 모델을 정의하고 admin에 등록하는 것만으로도 다양한 CRUD(Create, Read, Update, Delete) 작업을 할 수 있게 해주며, 관리 화면을 다양한 방식으로 커스터마이징할 수 있다.
 
+![image](/assets/images/postings/django_admin.png)
+
 #### 1. **Admin 계정 사용법**
 
 Django admin을 사용하기 위해서는 먼저 superuser 계정을 생성해야 한다. 다음 명령어를 통해 superuser를 생성할 수 있다:
