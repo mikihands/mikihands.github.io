@@ -47,8 +47,8 @@ PostgreSQL이 외부에서 접근할 수 있게 설정하더라도, **보안을 
 
 `pg_hba.conf` 파일은 **PostgreSQL에 접근할 수 있는 IP 주소와 인증 방식을 지정하는 보안 설정 파일**이다. 아래와 같이 **나의 테스트 서버**에서 접근을 허용하도록 설정을 추가했다.
 
-```
-confCopy code# Raspberry Pi의 IP 주소를 허용
+```conf
+# pg_hba.conf 파일 수정
 host    all             all             123.456.789.012/32       scram-sha-256
 ```
 
