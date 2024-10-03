@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "`Django Admin 기능정리 "
+title:  "Django Admin 기능정리 "
 date:   2024-09-19 22:15:00 +0900
 categories: Django
 tags: Django Django-Admin
