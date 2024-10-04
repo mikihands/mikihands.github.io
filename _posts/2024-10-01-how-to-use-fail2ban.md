@@ -4,6 +4,7 @@ title:  "Fail2ban을 이용한 postfix 메일서버 보안강화"
 date:   2024-10-01 19:00:00 +0900
 categories: Linux
 tags: Linux Postfix Security
+published : false
 ---
 
 ### Fail2Ban을 이용한 Postfix 메일 서버 보안 강화
