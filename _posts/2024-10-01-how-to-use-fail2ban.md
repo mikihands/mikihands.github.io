@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Fail2ban을 이용한 postfix 메일서버 보안강화"
+date:   2024-10-01 19:00:00 +0900
+categories: Linux
+tags: Linux Postfix Security
+---
+
 ### Fail2Ban을 이용한 Postfix 메일 서버 보안 강화
 
 **2024-10-01**
@@ -12,9 +20,9 @@
 sudo apt-get install fail2ban
 ```
 
-#### 2. **GCP 방화벽 연동 스크립트 작성**
+#### 2. **VM 방화벽 연동 스크립트 작성**
 
-기본적으로 Fail2Ban은 **로컬 방화벽(ufw나 iptables)**을 사용하지만, 나는 GCP 방화벽을 사용 중이라 Fail2Ban이 감지한 IP를 **GCP 방화벽 규칙(block_ip)**에 추가하는 스크립트를 작성했다.
+기본적으로 Fail2Ban은 **로컬 방화벽(ufw나 iptables)**을 사용하지만, 나는 VM 자체의 외부 방화벽을 사용 중이라 Fail2Ban이 감지한 IP를 **GCP 방화벽 규칙(block_ip)**에 추가하는 스크립트를 작성했다.
 
 **`/etc/fail2ban/action.d/gcloud-ban.conf`** 파일을 생성하고 아래 내용을 작성했다:
 
