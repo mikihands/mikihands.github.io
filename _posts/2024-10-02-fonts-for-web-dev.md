@@ -2,7 +2,7 @@
 layout: post
 title: "폰트와 웹 개발 : 폰트선택부터 적용, 관리까지"
 date: 2024-10-02 14:32
-Categories: Webdesign
+categories: HTML&CSS
 tags: Html Css Fonts
 ---
 
