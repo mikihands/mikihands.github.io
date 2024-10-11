@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "PotsgreSQL 주요명령어"
+date: 2024-10-11 10:08:00 +09:00
 categories: Database
 tags: Linux Database Postgresql Commands
-date: 2024-10-11 10:08:00
 ---
+
 # PostgreSQL 주요 명령어 정리
 
 PostgreSQL을 자주 사용하는 게 아니라 가끔 필요할 때마다 설정하다 보니 명령어들을 자꾸 잊어버리게 된다. 그래서 미래의 내가 또 기억이 안 나면 참고할 수 있도록 주요 명령어들을 정리해 둔다.
