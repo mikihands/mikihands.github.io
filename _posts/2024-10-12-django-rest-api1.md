@@ -12,7 +12,7 @@ tags: Django DRF Javascript-error()
 
 ### 1. REST API 서버 구축 및 테스트 시작
 
-먼저, REST 서버를 통해 비디오 URL을 받아 오디오 파일(MP3)을 생성하는 **`DownloadAudioView`**와 생성된 파일을 클라이언트에서 다운로드할 수 있는 **`FileDownloadView`**를 만들었다. Django REST Framework를 이용해 간단히 **GET**과 **POST** 요청을 처리하는 클래스를 작성했다.
+먼저, REST 서버를 통해 비디오 URL을 받아 오디오 파일(MP3)을 생성하고, 해당 파일을 다운로드할 수 있도록 하는 **DownloadAudioView**를 만들었다. 처음에는 별도의 클래스 뷰를 만드는 것도 고민했지만, 하나의 클래스에서 액션 인자를 사용하여 요청을 구분하는 방식으로 구현하기로 했다. Django REST Framework를 이용해 `APIview` 클래스를 상속받는 하나의 커스텀 클래스뷰에 간단히 **GET**과 **POST** 요청을 처리하는 메서드를 작성했다.
 
 처음 테스트에서는 클라이언트 측에서 비디오 URL을 `POST`로 서버에 전송하면, 서버는 해당 URL에서 오디오를 추출하여 MP3 파일로 저장한 후, 다운로드 링크를 클라이언트에 반환하는 구조였다.
 
