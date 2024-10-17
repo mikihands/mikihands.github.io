@@ -88,6 +88,7 @@ tags: Django Python Celery
 
 - **`.add_periodic_task()`**
   - Celery Beat와 함께 사용하여 주기적인 작업을 등록할 수 있는 메서드이다. 예를 들어 매일 특정 시간에 작업을 실행하고 싶을 때 유용하다.
+  
   ```python
   from celery.schedules import crontab
 
