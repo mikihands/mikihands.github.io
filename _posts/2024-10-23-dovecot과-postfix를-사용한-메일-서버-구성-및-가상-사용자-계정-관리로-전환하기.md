@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Dovecot과 Postfix를 사용한 메일 서버 구성 및 가상 사용자 계정 관리로 전환하기"
-date: 2024-10-23 12:00:00 +09:00
+date: 2024-10-23 00:32:00 +09:00
 categories: 메일 서버
-tags: 
+tags: Mail-server
 ---
 
 ### Dovecot과 Postfix를 사용한 메일 서버 구성 및 가상 사용자 계정 관리로 전환하기
