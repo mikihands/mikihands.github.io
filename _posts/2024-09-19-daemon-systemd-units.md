@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "`Linux Daemon과 Systemd 유닛"
+title:  "Linux Daemon과 Systemd 유닛"
 date:   2024-09-19 22:15:00 +0900
 categories: Linux
 tags: Linux Daemon Systemd-units
