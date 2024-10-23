@@ -3,7 +3,7 @@ layout: post
 title: "Dovecot과 Postfix의 가상 사용자 계정 관리 전환하기 (2부)"
 date: 2024-10-23 11:05:00 +09:00
 categories: Linux
-tags: Mail-server, Postfix, Dovecot
+tags: Mail-server Postfix Dovecot
 ---
 
 ### Dovecot과 Postfix의 가상 사용자 계정 관리 전환하기 (2부)
